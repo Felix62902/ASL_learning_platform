@@ -1,0 +1,16 @@
+<h2>Teachable Machine Image Model</h2>
+
+<button type="button" (click)="init()" *ngIf="!isLoading && !isReady">
+  Start Webcam
+</button>
+
+<p *ngIf="isLoading">Loading model and webcam...</p>
+
+<div #webcamContainer></div>
+
+<div *ngIf="isReady">
+  <h3>Predictions:</h3>
+  <div *ngFor="let p of predictions">
+    {{ p.className }}: {{ p.probability | number:'1.2-2' }}
+  </div>
+</div>

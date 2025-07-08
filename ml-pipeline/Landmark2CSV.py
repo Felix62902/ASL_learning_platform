@@ -64,14 +64,13 @@ with open(OUTPUT_CSV_PATH, 'w', newline='') as csvfile:
                     if normalized_landmarks:
                         csv_writer.writerow([label] + normalized_landmarks)
 
-                # --- NEW LOGIC ADDED HERE ---
                 elif label.lower() == 'nothing':
                     # If NO hand is found AND the label is 'nothing',
                     # write a row of zeros.
                     num_coords = 21 * 2  # 42 coordinates
                     zeros_row = [0.0] * num_coords
                     csv_writer.writerow([label] + zeros_row)
-                    # --- END OF NEW LOGIC ---
+
 
 hands.close()
 print(f"\nProcessing complete! Dataset saved to '{OUTPUT_CSV_PATH}'")

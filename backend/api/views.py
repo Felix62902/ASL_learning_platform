@@ -25,7 +25,7 @@ class CreateUserView(generics.CreateAPIView):
 class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
     queryset=Category.objects.all()
     serializer_class = CategorySerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny] # allow any or isautenticated, depending whether to provide snippet to non-authenticated users
 
     # def get_queryset(self):
     #     return self.queryset
@@ -33,7 +33,7 @@ class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
 class LessonViewSet(viewsets.ReadOnlyModelViewSet):
     queryset=Lesson.objects.all()
     serializer_class = LessonSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny] # allow any or isautenticated, depending whether to provide snippet to non-authenticated users
 
     # def get_queryset(self):
     #     return self.queryset

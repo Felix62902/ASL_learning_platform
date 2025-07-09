@@ -61,7 +61,7 @@ class SavedLessonSerializer(serializers.ModelSerializer):
         model = SavedLesson
         fields = ["id","user", "lesson", "saved_at","lesson_id"]
         read_only_fields = ['user', 'saved_at']
-    lesson_id = serializers.IntegerField(write_only=True)
+        lesson_id = serializers.IntegerField(write_only=True)
 
     def create(self, validated_data):
         lesson_id = validated_data.pop('lesson_id')

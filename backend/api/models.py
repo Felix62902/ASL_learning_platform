@@ -6,28 +6,42 @@ class User(AbstractUser):
     # can already get username, email, password, first_name, last_name, etc. from AbstractUser, only need to add custom Fields
     total_points = models.IntegerField(default=0)
     # profile_pic_url = models.URLField(max_length=512, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.username
 
-# class Categories():
-#     name = models.CharField(max_length=128)
-#     description = models.TextField(max_length=256)
-#     order_index = models.IntegerField(unique=True)
+class Category(models.Model):
+    name = models.CharField(max_length=128, unique=True)
+    description = models.TextField() 
+    order_index = models.IntegerField(unique=True)
 
-# class Lessons():
-#     category_id = models.ForeignKey(Categories.id, on_delete=models.SET_NULL, null=True, blank=True)
-#     sign_name = models.TextField()
-#     description = models.TextField()
-#     unlock_cost = models.IntegerField(null=True,blank=True)
-#     completion_points = models.IntegerField()
+    def __str__(self):
+        return self.name
+
+class Lesson(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name="lessons")
+    sign_name = models.CharField(max_length=100) 
+    description = models.TextField()
+    unlock_cost = models.IntegerField(default=100, null=True, blank=True)
+    completion_points = models.IntegerField(default=50)
     
-# class User_Progress():
-#     user_id = models.ForeignKey(User.id)
-#     lesson_id = models.ForeignKey(Lessons.id)
-#     last_practiced_at = models.DateTimeField()
+    def __str__(self):
+        return self.sign_name
 
-# class Saved_Lessons():
-#     user_id = models.ForeignKey(User.id)
-#     lesson_id = models.ForeignKey(Lessons.id)
-#     saved_at = models.DateTimeField()
+class UserProgress(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="progress_records")
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name="user_progress")
+    last_practiced_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        # Ensures a user can only have one progress entry per lesson
+        unique_together = ('user', 'lesson')
+
+class SavedLesson(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="saved_lessons")
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+    saved_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'lesson')

@@ -1,0 +1,72 @@
+/* This is the main container for the entire application view */
+.main-layout-container {
+  display: flex;
+  flex-direction: column; /* Stacks children vertically (header on top of main) */
+  min-height: 98vh; /* Ensures the container is at least the full height of the viewport */
+  background-color: #ffffff;
+}
+
+/* --- Header / Navbar Styles --- */
+.main-header {
+  width: 100%;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: white;
+  flex-shrink: 0; /* Prevents the header from shrinking */
+}
+
+.header-content {
+  max-width: 1400px; /* Or your preferred max width */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.main-header nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.main-header nav a:hover {
+  color: var(--color-primary);
+}
+
+/* --- Main Content Area (Corrected) --- */
+.main-content {
+  width: 96%;
+  margin: 0 auto; /* Centers the content horizontally */
+  font-family: var(--fontstyle);
+  padding: 2rem;
+
+  /* This is the key property that was missing. */
+  /* It tells this element to grow and take up any available vertical space. */
+  flex-grow: 1;
+
+  /* This helps center the content that you place inside it */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-half-card {
+  .card-header {
+    font-size: 5.2rem;
+    font-weight: bold;
+
+    color: var(--color-primary-dark);
+  }
+
+  .card-subheader {
+    color: var(--color-primary-dark);
+    font-size: 2rem;
+    font-weight: 800;
+  }
+}

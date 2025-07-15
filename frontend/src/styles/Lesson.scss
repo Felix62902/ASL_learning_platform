@@ -1,0 +1,51 @@
+h1 {
+  color: var(--color-text-primary);
+}
+
+p {
+  font-size: 1.2rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+h3 {
+  color: var(--color-text-primary);
+  font-size: 1.8rem;
+}
+
+.title-and-searchbar {
+  display: grid;
+  grid-template-columns: 70% 30%;
+
+  .searchbar {
+    background-color: red;
+  }
+}
+
+.lessons-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.lesson-container {
+  //   background-color: red;
+  border-radius: 2rem;
+  padding: 1.2rem;
+  min-width: 20%;
+  border-style: solid;
+  border-width: thin;
+  border-color: var(--color-primary-dark);
+  justify-items: center;
+  min-height: 372px;
+}
+
+.lesson-btn {
+  background-color: var(--color-primary-dark);
+  color: white;
+  padding: 1.2rem 2rem;
+  border-radius: 32px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}

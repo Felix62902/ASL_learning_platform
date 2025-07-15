@@ -1,0 +1,61 @@
+.title-container {
+  place-items: center;
+  margin-bottom: 2rem;
+  h1 {
+    color: var(--color-text-primary);
+    font-size: 2.4rem;
+    margin-top: 0;
+  }
+  p {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+}
+
+// fingerspelling
+.cat-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.8rem;
+  margin-top: 1.6rem;
+  h3 {
+    color: var(--color-text-primary);
+    font-size: 1.6rem;
+  }
+  p,
+  a {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  a {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+}
+
+.fgs-container {
+  text-align: center;
+  background-color: var(--color-primary-light); /* slightly lighter than bg */
+  border-radius: 20px;
+  align-content: center;
+  padding: 2.4rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.vcb-fp-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 2.8rem;
+
+  .vcb-container {
+    // text-align: center;
+    background-color: var(--color-primary-light); /* slightly lighter than bg */
+    border-radius: 20px;
+    // min-height: 120%;
+    padding: 2.4rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  }
+}

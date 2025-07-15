@@ -1,0 +1,70 @@
+.password-reset-layout {
+  height: 100vh;
+  width: 100%;
+  align-content: center;
+  justify-items: center;
+  font-family: var(--fontstyle);
+}
+
+.password-reset-box {
+  position: relative;
+  background-color: var(--color-primary-light);
+  /* color: white; */
+  padding: 50px;
+  border-radius: 25px;
+  text-align: center;
+  width: 550px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.password-reset-box h1 {
+  color: var(--color-text-primary);
+}
+
+.password-reset-box p {
+  color: var(--color-text-secondary);
+}
+
+.password-reset-box label {
+  color: var(--color-text-secondary);
+  display: block;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.password-reset-box input {
+  max-width: 88%;
+  background-color: var(--color-background);
+  border-radius: 20px;
+  color: black;
+}
+
+.btn {
+  /* max-width: 88%; */
+  background-color: var(--color-primary-dark);
+  color: white;
+  font-size: 18px;
+  padding: 14px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 88%;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+.btn:hover {
+  background-color: var(--color-button-hover);
+}
+
+a {
+  margin-top: 1.6rem;
+}

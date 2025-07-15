@@ -1,0 +1,87 @@
+/* --- Form Container --- */
+.form-container {
+  width: 100%;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Headings --- */
+.form-container h1 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.form-container p.subtitle {
+  margin-bottom: 2.5rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* --- Input Fields --- */
+.input-container {
+  margin-bottom: 1.5rem;
+}
+
+.input {
+  width: 112%;
+  padding: 1rem;
+  border: None;
+  border-radius: 20px;
+  background-color: var(--color-primary-light);
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  color: var(--color-text-secondary);
+  margin: 1.2rem 0 1.2rem 0;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(184, 73, 151, 0.15);
+}
+
+/* --- Buttons --- */
+.form-button {
+  width: 24%;
+  padding: 1rem;
+  border: none;
+  border-radius: 32px;
+  background-color: var(--color-primary-dark);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: 1rem;
+}
+
+.form-button:hover {
+  background-color: var(--color-button-hover);
+}
+
+/* .form-container span,
+.form-container a {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+} */
+
+.form-reroute {
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.form-reroute a:hovera:hover {
+  text-decoration: underline;
+}
+
+.password_reset {
+  text-decoration: none;
+  color: black;
+  text-align: right;
+  width: 112%;
+}

@@ -2,8 +2,12 @@ asgiref
 Django
 django-cors-headers
 djangorestframework
+djangorestframework-simplejwt
 PyJWT
 pytz
 sqlparse
 psycopg2-binary
 python-dotenv
+gunicorn
+psycopg2-binary
+dj-database-url

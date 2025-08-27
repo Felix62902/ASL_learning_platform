@@ -5,8 +5,11 @@ class User(AbstractUser):
     # Usage: from django.contrib.auth import get_user_model, then set User = get_user_model()
     # can already get username, email, password, first_name, last_name, etc. from AbstractUser, only need to add custom Fields
     total_points = models.IntegerField(default=0)
+    current_streak = models.IntegerField(default = 0)
+    last_streak_date = models.DateField(null=True, blank = True)
     # profile_pic_url = models.URLField(max_length=512, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    left_handed = models.BooleanField(default=False)
 
     def __str__(self):
         return self.username
@@ -15,6 +18,9 @@ class Category(models.Model):
     name = models.CharField(max_length=128, unique=True)
     description = models.TextField() 
     order_index = models.IntegerField(unique=True)
+
+    class Meta:
+        verbose_name_plural ="Categories "
 
     def __str__(self):
         return self.name
@@ -38,10 +44,10 @@ class UserProgress(models.Model):
         # Ensures a user can only have one progress entry per lesson
         unique_together = ('user', 'lesson')
 
-class SavedLesson(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="saved_lessons")
+class UnlockedLesson(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="unlocked_lessons")
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
-    saved_at = models.DateTimeField(auto_now_add=True)
+    unlocked_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         unique_together = ('user', 'lesson')

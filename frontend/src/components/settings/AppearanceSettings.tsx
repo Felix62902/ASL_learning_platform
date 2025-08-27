@@ -7,10 +7,10 @@ export default function AppearanceSettings() {
 
   return (
     <div>
-      <h2>Appearance</h2>
+      <h3>Appearance</h3>
       <p>Customize the look and feel of the application.</p>
       <div className="setting-option">
-        <span>Dark Mode</span>
+        <h1>Dark Mode</h1>
 
         {/*
           This is the corrected usage.

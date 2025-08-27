@@ -8,9 +8,11 @@ import AccountSettings from "../../components/settings/AccountSettings";
 import {
   ExitIcon,
   FaceIcon,
+  LockClosedIcon,
   MoonIcon,
   PersonIcon,
 } from "@radix-ui/react-icons";
+import SecuritySettings from "../../components/settings/SecuritySettings";
 
 function Settings() {
   const [profile, setProfile] = useState<UserInformation | null>(null);
@@ -24,6 +26,7 @@ function Settings() {
       case "account":
         return <AccountSettings />;
       case "security":
+        return <SecuritySettings />;
       default:
         // Pass the profile data to the AccountSettings component
         return <div>account</div>;
@@ -73,23 +76,24 @@ function Settings() {
                 Account
               </button>
             </li>
-            {/* <li>
+            <li>
               <button onClick={() => setActiveSection("security")}>
-                Login & security
+                <LockClosedIcon></LockClosedIcon>
+                Security
               </button>
-            </li> */}
-            {/* <li>
-              <button>Preferences</button>
-            </li> */}
+            </li>
+
             <li>
               <button onClick={() => setActiveSection("appearance")}>
                 <MoonIcon></MoonIcon>
                 Appearance
               </button>
             </li>
-            <li>
+            <li style={{ display: "flex" }}>
               <ExitIcon></ExitIcon>
-              <Link to="/logout">Sign out</Link>
+              <Link to="/logout" style={{ margin: 0, padding: "0 0.2rem" }}>
+                Sign out
+              </Link>
             </li>
           </ul>
         </div>

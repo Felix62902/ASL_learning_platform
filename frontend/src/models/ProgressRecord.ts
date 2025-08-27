@@ -5,7 +5,6 @@ export interface ProgressRecord {
   lesson: {
     id: number;
     sign_name: string;
-    // ... other lesson fields
   };
   last_practiced_at: string; // API sends dates as strings
 }

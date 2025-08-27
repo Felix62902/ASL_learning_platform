@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 import Navbar from "../components/Navbar";
+import "../styles/MainLayout.scss";
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -7,16 +8,11 @@ interface MainLayoutProps {
 
 function MainLayout({ children }: MainLayoutProps) {
   return (
-    <div>
+    <div className="main-layout-container">
       <Navbar access="Private"></Navbar>
       <main
-        style={{
-          maxWidth: "80%",
-          margin: "0 auto",
-          padding: "0 2rem",
-          fontFamily: "var(--fontstyle)",
-          // backgroundColor: "red",
-        }}
+        style={{ backgroundColor: "var(--color-background)" }}
+        className="main-content"
       >
         {children}
       </main>

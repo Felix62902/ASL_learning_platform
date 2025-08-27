@@ -18,7 +18,15 @@ function Landing() {
         </div>
 
         {/* image */}
-        <div className="landing-right">image placeholder</div>
+        {/* <div className="landing-right">image placeholder</div> */}
+        <video
+          src="/assets/videos/loop.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{ width: "100%", height: "auto" }}
+        />
       </div>
     </div>
   );

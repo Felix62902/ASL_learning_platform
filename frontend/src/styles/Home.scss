@@ -1,6 +1,6 @@
 .title-container {
   place-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   h1 {
     color: var(--color-text-primary);
     font-size: 2.4rem;
@@ -19,6 +19,9 @@
   grid-template-columns: 1fr 1fr;
   gap: 2.8rem;
   margin-top: 1.6rem;
+  width: 80%;
+  height: 500px;
+
   h3 {
     color: var(--color-text-primary);
     font-size: 1.6rem;
@@ -54,8 +57,42 @@
     // text-align: center;
     background-color: var(--color-primary-light); /* slightly lighter than bg */
     border-radius: 20px;
-    // min-height: 120%;
+    align-content: center;
     padding: 2.4rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   }
+}
+
+@media only screen and (min-width: 2000px) {
+  .cat-container {
+    min-height: 1080px;
+  }
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  cursor: help;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 320px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

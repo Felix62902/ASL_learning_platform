@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../styles/Navbar.scss"; // optional for styling if you're separating CSS
+import { ExitIcon } from "@radix-ui/react-icons";
 
 interface NavbarProps {
   access: "Private" | "Public";
@@ -21,9 +22,7 @@ function Navbar({ access }: NavbarProps) {
               <Link to="/about">About</Link>
             </li>
 
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
+            <li>{/* <Link to="/contact">Contact</Link> */}</li>
             <li>
               <Link to="/login" className="btn-primary small">
                 Get started
@@ -36,12 +35,13 @@ function Navbar({ access }: NavbarProps) {
               <Link to="/home">Home</Link>
             </li>
             <li>
-              <Link to="/profile">Profile</Link>
+              <Link to="/progress">Progress</Link>
             </li>
             <li>
               <Link to="/settings">Settings</Link>
             </li>
             <li>
+              <ExitIcon></ExitIcon>
               <Link to="../">Sign-out</Link>
             </li>
           </>

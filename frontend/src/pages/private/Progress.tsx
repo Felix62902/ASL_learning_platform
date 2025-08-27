@@ -2,22 +2,8 @@ import { Link } from "react-router-dom";
 import "../../styles/Progress.scss";
 import { useEffect, useState } from "react";
 import api from "../../api";
-
-interface UserInformation {
-  username: String;
-  total_points: number;
-  current_streak: number;
-}
-
-interface ProgressRecord {
-  id: number;
-  lesson: {
-    id: number;
-    sign_name: string;
-    // ... other lesson fields
-  };
-  last_practiced_at: string; // API sends dates as strings
-}
+import type { UserInformation } from "../../models/UserInformation";
+import type { ProgressRecord } from "../../models/ProgressRecord";
 
 function Profile() {
   const [profile, setProfile] = useState<UserInformation | null>(null);

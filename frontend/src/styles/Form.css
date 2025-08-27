@@ -23,7 +23,7 @@
 
 /* --- Input Fields --- */
 .input-container {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .input {
@@ -46,7 +46,7 @@
 
 /* --- Buttons --- */
 .form-button {
-  width: 24%;
+  width: 28%;
   padding: 1rem;
   border: none;
   border-radius: 32px;
@@ -84,4 +84,56 @@
   color: black;
   text-align: right;
   width: 112%;
+}
+
+/* toggle switch */
+.toggleContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: fit-content;
+  border: 3px solid var(--color-primary-dark);
+  border-radius: 20px;
+  background: var(--color-primary-dark);
+  font-weight: bold;
+  color: #343434;
+  cursor: pointer;
+  margin-bottom: 1.6rem;
+}
+.toggleContainer::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: 0%;
+  border-radius: 20px;
+  background: white;
+  transition: all 0.3s;
+}
+.toggleCheckbox:checked + .toggleContainer::before {
+  left: 50%;
+}
+.toggleContainer div {
+  padding: 6px;
+  text-align: center;
+  z-index: 1;
+}
+.toggleCheckbox {
+  display: none;
+}
+.toggleCheckbox:checked + .toggleContainer div:first-child {
+  color: white;
+  transition: color 0.3s;
+}
+.toggleCheckbox:checked + .toggleContainer div:last-child {
+  color: var(--color-primary-dark);
+  transition: color 0.3s;
+}
+.toggleCheckbox + .toggleContainer div:first-child {
+  color: var(--color-primary-dark);
+  transition: color 0.3s;
+}
+.toggleCheckbox + .toggleContainer div:last-child {
+  color: white;
+  transition: color 0.3s;
 }

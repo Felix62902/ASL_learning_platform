@@ -11,34 +11,43 @@ p {
 h3 {
   color: var(--color-text-primary);
   font-size: 1.8rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .title-and-searchbar {
   display: grid;
+  width: 80%;
   grid-template-columns: 70% 30%;
-
-  .searchbar {
-    background-color: red;
-  }
+  margin-bottom: 2.4rem;
 }
 
 .lessons-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 2rem;
+  width: 80%;
+  gap: 3.2rem;
+  align-items: stretch;
 }
 
-.lesson-container {
-  //   background-color: red;
+.lesson-card {
+  flex: 0 1 280px;
+  width: 100%;
   border-radius: 2rem;
   padding: 1.2rem;
-  min-width: 20%;
+
   border-style: solid;
   border-width: thin;
   border-color: var(--color-primary-dark);
+  text-align: center;
   justify-items: center;
-  min-height: 372px;
+  min-height: 440px;
+  max-width: 320px;
+}
+
+.locked {
+  background-color: lightgrey;
 }
 
 .lesson-btn {
@@ -48,4 +57,30 @@ h3 {
   border-radius: 32px;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.searchbar {
+  padding: 0.8rem 1.6rem;
+  font-size: 16px;
+  height: 20%;
+  align-self: center;
+
+  border: None;
+  border-radius: 2rem;
+  background-color: var(--color-primary-light);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  color: var(--color-text-primary);
+  margin: 1.2rem 0 1.2rem 0;
+}
+
+.searchbar:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(184, 73, 151, 0.15);
+}
+
+.sign-image {
+  width: 200px;
+  height: 200px;
 }

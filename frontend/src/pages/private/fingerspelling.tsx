@@ -26,11 +26,13 @@ function Fingerspelling() {
     fetchData(); // 4. Call the async function
   }, []);
   return (
-    <LessonLayout
-      title="Fingerspelling"
-      description="Master the building blocks of ASL. Learn to sign each letter of the alphabet"
-      content={content}
-    ></LessonLayout>
+    <>
+      <LessonLayout
+        title="Fingerspelling"
+        description="Master the building blocks of ASL. Learn to sign each letter of the alphabet"
+        content={content}
+      />
+    </>
   );
 }
 

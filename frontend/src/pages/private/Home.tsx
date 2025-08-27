@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Navbar from "../../components/Navbar";
 import "../../styles/Home.scss";
+import { LockClosedIcon } from "@radix-ui/react-icons";
 
 function Home() {
   return (
@@ -25,22 +25,30 @@ function Home() {
 
         {/* right half of the container */}
         <div className="vcb-fp-container">
-          <div className="vcb-container">
+          <div className="vcb-container" style={{ backgroundColor: "#ebebeb" }}>
             <h3>Vocabulary</h3>
             <p>
               Build your conversational skills with essential signs for daily
               life, covering topics from greetings to common objects
             </p>
-            <Link to="/vocab">Practice →</Link>
+
+            <p style={{ fontWeight: "bold" }} className="tooltip">
+              Locked
+              <LockClosedIcon></LockClosedIcon>
+              <span className="tooltiptext">
+                Complete Fingerspelling to unlock
+              </span>
+            </p>
           </div>
 
           <div className="vcb-container">
-            <h3>Free Practice</h3>
+            <h3>Word Practice</h3>
             <p>
-              Put your knowledge to the test. Review the signs you've learned
-              and improve your recognition speed
+              Put your knowledge to the test by spelling a word character by
+              character, no hints given. Review the signs you've learned and
+              improve your recognition speed
             </p>
-            <p>Practice →</p>
+            <Link to="./freePractice">Practice →</Link>
           </div>
         </div>
       </div>

@@ -3,13 +3,14 @@
 import { useState } from "react";
 import PracticeSession from "../../components/PracticeSession";
 import Navbar from "../../components/Navbar";
+import FreePractice from "../../components/FreePractice";
 
 function PracticeFree() {
   return (
     <>
       <div>
         <Navbar access="Private"></Navbar>
-        <PracticeSession></PracticeSession>
+        <FreePractice></FreePractice>
       </div>
     </>
   );

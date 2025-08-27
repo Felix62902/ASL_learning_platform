@@ -9,6 +9,7 @@
 .settings-sidebar {
   background-color: var(--color-primary-dark);
   padding: 1.6rem;
+
   span {
     color: white;
     font-size: 2.8rem;
@@ -34,12 +35,16 @@
       font-size: 1.2rem;
       text-decoration: none;
       padding: 1.2rem 0.4rem;
+      width: 100%;
+      text-align: -webkit-left;
+      font-weight: bold;
     }
 
     li > button:hover,
     li > a:hover {
       background-color: var(--color-primary-light);
       color: var(--color-text-primary);
+      cursor: pointer;
     }
   }
 }
@@ -47,4 +52,5 @@
 .settings-content {
   padding: 2rem;
   padding-top: 0;
+  padding-left: 6rem;
 }

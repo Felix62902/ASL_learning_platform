@@ -5,7 +5,7 @@
 
 .practice-main-container {
   display: flex;
-  //   grid-template-columns: 1fr 1fr;
+
   height: inherit;
 }
 
@@ -55,15 +55,15 @@
 }
 
 .result-box {
-  margin: 2rem;
-  padding: 1.2rem;
+  margin: 1.6rem;
+  padding: 0.8rem;
   border-radius: 2rem;
   color: var(--color-background-light);
   width: 100%;
   justify-self: center;
   text-align: center;
   font-weight: bold;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .nextword-button {

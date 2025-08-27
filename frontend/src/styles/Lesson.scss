@@ -32,17 +32,17 @@ h3 {
 }
 
 .lesson-card {
-  flex: 0 1 280px;
+  flex: 0 1 238px;
   width: 100%;
   border-radius: 2rem;
-  padding: 1.2rem;
+  padding: 0.8rem;
 
   border-style: solid;
   border-width: thin;
   border-color: var(--color-primary-dark);
   text-align: center;
   justify-items: center;
-  min-height: 440px;
+  min-height: 400px;
   max-width: 320px;
 }
 

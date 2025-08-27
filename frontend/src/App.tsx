@@ -8,14 +8,13 @@ import NotFound from "./pages/NotFound";
 import MainLayout from "./layouts/MainLayout";
 import Landing from "./pages/public/Landing";
 import ResetPassword from "./pages/public/reset_password";
-import Fingerspelling from "./pages/private/Fingerspelling";
+import Fingerspelling from "./pages/private/fingerspelling";
 import Progress from "./pages/private/Progress";
 import Settings from "./pages/private/Settings";
 
 import PracticeAlpha from "./pages/private/PracticeAlpha";
 import PracticeFree from "./pages/private/PracticeFree";
 import About from "./pages/public/About";
-// import { UserContext, UserProvider } from "./contexts/UserContext";
 
 function Logout() {
   localStorage.clear(); // clear access and register token

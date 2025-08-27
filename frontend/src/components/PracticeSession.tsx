@@ -424,13 +424,13 @@ function PracticeSession({
         {/* left container is for instructions */}
         <div className="practice-left-container">
           <div className="prediction-display">
-            <h1>Now Practicing: {sign}</h1>
+            <h1 style={{ fontSize: "1.6rem" }}>Now Practicing: {sign}</h1>
             <img
               src={`/assets/images/Sign_language_${sign}.svg`}
               alt="ASL sign"
               style={{
-                height: "400px",
-                width: "400px",
+                height: "320px",
+                width: "320px",
                 transform: lefthanded ? "scaleX(-1)" : "none",
               }}
 

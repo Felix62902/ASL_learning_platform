@@ -41,10 +41,10 @@
 
 /* --- Main Content Area (Corrected) --- */
 .main-content {
-  width: 96%;
+  // width: 96%;
   // margin: 0 auto; /* Centers the content horizontally */
   font-family: var(--fontstyle);
-  padding: 2rem;
+  // padding: 2rem;
 
   /* This is the key property that was missing. */
   /* It tells this element to grow and take up any available vertical space. */

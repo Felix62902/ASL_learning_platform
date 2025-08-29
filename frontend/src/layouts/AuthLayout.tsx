@@ -16,7 +16,7 @@ function AuthLayout({ imagePosition, children }: AuthLayoutProps) {
     <div className={layoutClass}>
       <div className="image-column">
         <div>
-          <img src="/src/assets/images/logo.png"></img>
+          <img src="/assets/images/logo.png"></img>
         </div>
       </div>
       <div className="form-column">{children}</div>

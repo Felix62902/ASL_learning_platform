@@ -115,6 +115,16 @@
   height: 0;
 }
 
+.completed-word {
+  color: green;
+  font-size: 8rem;
+}
+
+.incomplete-word {
+  color: darkgray;
+  font-size: 8rem;
+}
+
 @media (max-width: 768px) {
   .practice-main-container {
     display: flex;
@@ -169,21 +179,36 @@
     margin-bottom: 1rem;
     border: 1px solid #ddd; /* Temporary border to see container */
     background: #f0f0f0; /* Light background to see if container is visible */
+    overflow: hidden;
   }
 
-  .video-stack video {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover;
-    display: block; // IMPORTANT
-  }
+  // .video-stack video {
+  //   width: 100% !important;
+  //   height: 100% !important;
+  //   object-fit: cover;
+  //   display: block; // IMPORTANT
+  // }
 
+  // .video-stack canvas {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100% !important;
+  //   height: 100% !important;
+  //   z-index: 10;
+  // }
+  .video-stack video,
   .video-stack canvas {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100% !important;
-    height: 100% !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .video-stack canvas {
     z-index: 10;
   }
 
@@ -202,5 +227,14 @@
   .navigation-buttons {
     // display: none;
     transform: scale(0.8);
+  }
+
+  .word-display-container > h1 {
+    margin: 2vh 0;
+  }
+
+  .completed-word,
+  .incomplete-word {
+    font-size: 4rem;
   }
 }

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import "../styles/Auth.css";
+import "../styles/Auth.scss";
 
 interface AuthLayoutProps {
   imagePosition: "left" | "right";
@@ -16,7 +16,7 @@ function AuthLayout({ imagePosition, children }: AuthLayoutProps) {
     <div className={layoutClass}>
       <div className="image-column">
         <div>
-          <img src="../../src/assets/images/logo.png"></img>
+          <img src="/assets/images/logo.png" alt="Mano Logo"></img>
         </div>
       </div>
       <div className="form-column">{children}</div>

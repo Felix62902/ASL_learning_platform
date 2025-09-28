@@ -171,121 +171,6 @@ function PracticeSession({
     }
   }, [correct, hasPracticedBefore, lessonId]);
 
-  // This sets up the prediction loop.
-  // useEffect(() => {
-  //   const detect = async () => {
-  //     // Step 2 & 3: Capture image and extract landmarks
-  //     if (
-  //       // make sure everything is ready first
-  //       webcamRef.current &&
-  //       webcamRef.current.video &&
-  //       webcamRef.current.video.readyState === 4 &&
-  //       handLandmarkerRef.current &&
-  //       modelRef.current &&
-  //       classLabels.length > 0
-  //     ) {
-  //       const video = webcamRef.current.video;
-  //       const canvas = canvasRef.current;
-
-  //       // draws the skeleton in a transparent canvas on top of the video
-  //       if (canvas && video) {
-  //         const canvasCtx = canvas.getContext("2d"); // working with 2D canvas
-
-  //         canvas.width = video.videoWidth;
-  //         canvas.height = video.videoHeight;
-
-  //         if (canvasCtx) {
-  //           //process current video frame
-  //           const results = handLandmarkerRef.current.detectForVideo(
-  //             video,
-  //             performance.now() // for syncrhonization
-  //           );
-
-  //           canvasCtx.save();
-  //           canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
-  //           canvasCtx.translate(canvas.width, 0);
-  //           canvasCtx.scale(-1, 1);
-
-  //           if (results.landmarks && results.landmarks.length > 0) {
-  //             const drawingUtils = new DrawingUtils(canvasCtx);
-  //             const landmarks = results.landmarks[0];
-
-  //             // draw lines connecting key hand joints
-  //             drawingUtils.drawConnectors(
-  //               landmarks,
-  //               HandLandmarker.HAND_CONNECTIONS,
-  //               { color: "#00FF00", lineWidth: 2 }
-  //             );
-  //             drawingUtils.drawLandmarks(landmarks, {
-  //               color: "#FF0000",
-  //               lineWidth: 1,
-  //             });
-
-  //             // Step 4: Normalize the landmark data and run prediction
-  //             const normalizedData = normalizeLandmarks(landmarks);
-
-  //             if (normalizedData) {
-  //               // Step 5: Pass it as input to ML model to run detect
-  //               const tensor = tf.tensor2d([normalizedData]); // wrap data in model needed by tf
-  //               const predictionTensor = modelRef.current.predict(
-  //                 tensor
-  //               ) as tf.Tensor; // the predicition result is a list of probabilities
-  //               const predictionArray =
-  //                 (await predictionTensor.data()) as Float32Array; // extract results to a JS array for analysis
-
-  //               // free up GPU/ CPU memory used for performance
-  //               tensor.dispose();
-  //               predictionTensor.dispose();
-
-  //               // Step 6: Print resulting output from model on screen
-
-  //               // Find the prediction with the highest confidence score
-  //               const predictedIndex = predictionArray.indexOf(
-  //                 Math.max(...predictionArray)
-  //               );
-
-  //               // use the index to get the corresponding gesture label
-  //               const currentPrediction = classLabels[predictedIndex];
-  //               setPrediction(currentPrediction);
-
-  //               // check if current prediction is the answer, if correct, trigger changing color of prediction box to green
-  //               // if (currentPrediction.toUpperCase() === sign!.toUpperCase()) {
-  //               //   setCorrect(true);
-  //               // }
-  //               if (currentPrediction.toUpperCase() === sign!.toUpperCase()) {
-  //                 // If the prediction is correct, check our timer.
-  //                 if (correctStartTimeRef.current === null) {
-  //                   // If this is the first correct frame, start the timer.
-  //                   correctStartTimeRef.current = Date.now();
-  //                 } else {
-  //                   // If the timer is already running, check if 2 seconds have passed.
-  //                   if (
-  //                     Date.now() - correctStartTimeRef.current >
-  //                     CORRECT_HOLD_DURATION
-  //                   ) {
-  //                     // If yes, the user has held the sign long enough.
-  //                     setCorrect(true);
-  //                   }
-  //                 }
-  //               } else {
-  //                 // If the prediction is incorrect, reset the timer.
-  //                 correctStartTimeRef.current = null;
-  //               }
-  //             }
-  //           } else {
-  //             setPrediction("None");
-  //             correctStartTimeRef.current = null;
-  //           }
-  //           canvasCtx.restore();
-  //         }
-  //       }
-  //     }
-  //   };
-
-  //   const intervalId = setInterval(detect, 16.7);
-  //   return () => clearInterval(intervalId);
-  // }, [classLabels, sign]); // Rerun this effect if classLabels change
-
   // [AI-generated: Gemini, 23/8/2025 ]
   // Improved prediction loop, now detects latency and fps
   useEffect(() => {
@@ -436,7 +321,7 @@ function PracticeSession({
 
               // className="sign-image"
             />
-            <h1>Prediction: {prediction}</h1>
+            <h1 className="prediction-text">Prediction: {prediction}</h1>
             <div className="navigation-buttons">
               <button
                 onClick={() => handleNavigate(prevSign)}

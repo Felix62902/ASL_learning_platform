@@ -35,7 +35,7 @@ function About() {
             dissertation project for the MSc Software Development at the
             University of Glasgow (2025). The primary goal was to explore the
             feasibility and effectiveness of a client-side, AI-powered tutor for
-            motor skill acquisition in a language learning context.
+            motor skill acquisition in sign language learning.
           </p>
         </div>
 
@@ -49,7 +49,7 @@ function About() {
               <strong>Backend:</strong> Django, Django REST Framework
             </div>
             <div className="tech-item">
-              <strong>Database:</strong> SQLite
+              <strong>Database:</strong> SQLite, PostgresSQL
             </div>
             <div className="tech-item">
               <strong>ML (Training):</strong> Python, TensorFlow, Keras,

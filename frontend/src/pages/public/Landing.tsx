@@ -1,3 +1,15 @@
+/*
+Filename: Landing.tsx
+Author: Jor Lam Wong
+Date: 23/8/2025
+AI Usage Declaration;
+-This file contains code generated with the help of AI tools
+- Tool Used: Gemini
+-Date generated: 28/7/2025
+- AI generated sections are marked with comment #[AI-Generated]
+I have reviewed, tested and understood all AI-generated code
+*/
+
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import "../../styles/Landing.scss";
@@ -17,8 +29,7 @@ function Landing() {
           </Link>
         </div>
 
-        {/* image */}
-        {/* <div className="landing-right">image placeholder</div> */}
+        {/* The video below is AI generated */}
         <video
           src="/assets/videos/loop.mp4"
           autoPlay

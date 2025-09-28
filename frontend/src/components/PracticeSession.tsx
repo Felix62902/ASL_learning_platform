@@ -423,8 +423,8 @@ function PracticeSession({
               />
               <canvas
                 ref={canvasRef}
-                width={640}
-                height={480}
+                width={containerSize.width}
+                height={containerSize.height}
                 style={{
                   position: "absolute",
                   width: "100%",

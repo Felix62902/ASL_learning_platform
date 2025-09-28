@@ -1,0 +1,91 @@
+.AuthLayout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* Flipping the Login and Register elements depending on left or right */
+.image-column,
+.form-column {
+  grid-row: 1;
+}
+
+.form-column {
+  margin-left: 10rem;
+}
+
+.image-right .image-column {
+  grid-column: 2;
+  background: linear-gradient(
+    90deg,
+    var(--color-background) 50%,
+    var(--color-background-light) 50%
+  );
+}
+
+.image-left .image-column {
+  background: linear-gradient(
+    90deg,
+    var(--color-background-light) 50%,
+    var(--color-background) 50%
+  );
+}
+
+.image-right .form-column {
+  grid-column: 1;
+}
+
+.AuthLayout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  height: 100vh;
+  width: 100%;
+}
+
+.image-column {
+  /* background: linear-gradient(90deg, #ffc0cb 50%, #00ffff 50%); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+/* Inner card-like image container */
+.image-column > div {
+  background-color: #f8f8fc; /* slightly lighter than bg */
+  border-radius: 20px;
+  padding: 3rem;
+  width: 52%;
+  height: 52%;
+  /* max-width: 400px; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 
+ */
+
+@media (max-width: 768px) {
+  .AuthLayout-grid {
+    display: flex;
+  }
+  /* On mobile, completely hide the image column */
+  .image-column {
+    display: none;
+  }
+
+  .form-column {
+    height: 100vh; /* Let the form take the full screen height */
+    width: 100vw;
+    margin: 0 12vw 0 12vw;
+  }
+}

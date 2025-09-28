@@ -127,12 +127,14 @@
   .practice-left-container {
     width: 100%;
     order: 2;
-    padding: 0;
+    // padding: 1rem;
+    margin-top: 1rem;
   }
 
   .practice-right-container {
     width: 100%;
     order: 1;
+    padding: 0;
   }
 
   .prediction-display {
@@ -157,8 +159,48 @@
     margin: 0;
     font-size: 1.6rem;
   }
-  // .navigation-buttons {
-  //   // display: none;
-  //   transform: scale(0.8);
-  // }
+
+  .video-stack {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    min-height: 300px;
+    aspect-ratio: 4 / 3;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd; /* Temporary border to see container */
+    background: #f0f0f0; /* Light background to see if container is visible */
+  }
+
+  .video-stack video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    display: block; // IMPORTANT
+  }
+
+  .video-stack canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 10;
+  }
+
+  .practice-backbutton {
+    width: 100%;
+    margin-bottom: 1rem;
+    z-index: 5; /* Lower z-index than canvas */
+    position: relative;
+  }
+
+  .performance-metrics {
+    display: none;
+    // margin-top: 1rem;
+    // text-align: center;
+  }
+  .navigation-buttons {
+    // display: none;
+    transform: scale(0.8);
+  }
 }

@@ -227,13 +227,8 @@ function FreePractice() {
         <div className="practice-left-container">
           <div className="word-display-container">
             <h1>Spell:</h1>
-            <div className="word-display"></div>
-            <span style={{ color: "green", fontSize: "8rem" }}>
-              {completedChar}
-            </span>
-            <span style={{ color: "darkgray", fontSize: "8rem" }}>
-              {incompleteChar}
-            </span>
+            <span className="completed-word">{completedChar}</span>
+            <span className="incomplete-word">{incompleteChar}</span>
           </div>
 
           {isWordComplete ? (

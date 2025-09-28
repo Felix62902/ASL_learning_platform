@@ -5,7 +5,7 @@ import { LockClosedIcon } from "@radix-ui/react-icons";
 function Home() {
   return (
     <>
-      <div className="title-container">
+      <div className="home-title-container">
         <h1>Browse Categories</h1>
         <p>
           Your journey into sign language starts here. Choose a category below

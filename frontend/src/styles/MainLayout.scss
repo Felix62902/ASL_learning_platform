@@ -4,6 +4,7 @@
   flex-direction: column; /* Stacks children vertically (header on top of main) */
   min-height: 98vh; /* Ensures the container is at least the full height of the viewport */
   background-color: #ffffff;
+  width: 100%;
 }
 
 /* --- Header / Navbar Styles --- */
@@ -41,16 +42,9 @@
 
 /* --- Main Content Area (Corrected) --- */
 .main-content {
-  // width: 96%;
-  // margin: 0 auto; /* Centers the content horizontally */
   font-family: var(--fontstyle);
-  // padding: 2rem;
-
-  /* This is the key property that was missing. */
-  /* It tells this element to grow and take up any available vertical space. */
   flex-grow: 1;
 
-  /* This helps center the content that you place inside it */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,5 +62,15 @@
     color: var(--color-primary-dark);
     font-size: 2rem;
     font-weight: 800;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-layout-container {
+    display: flex;
+
+    min-height: 98vh; /* Ensures the container is at least the full height of the viewport */
+    background-color: #ffffff;
+    width: 100%;
   }
 }

@@ -14,7 +14,7 @@
 }
 
 .form-column {
-  margin-left: 10rem;
+  // margin-left: 10rem;
 }
 
 .landing-left {
@@ -22,25 +22,26 @@
 
   h1 {
     color: var(--color-text-primary);
-    font-size: 4rem;
+    font-size: clamp(2rem, 8vw, 4rem);
   }
 
   p {
     color: var(--color-text-secondary);
-    font-size: 1.6rem;
+    font-size: clamp(0.8rem, 4vw, 1.6rem);
     margin-bottom: 5rem;
   }
 
   .btn {
     width: 16%;
-    padding: 1.4rem;
+    padding: clamp(0.8rem, 1.2rem, 1.4rem);
     border: none;
-    border-radius: 32px;
+    border-radius: 40px;
     background-color: var(--color-primary-dark);
     cursor: pointer;
     transition: background-color 0.2s;
     text-decoration: none;
-    padding: 20px 46px;
+    padding: clamp(12px, 2vw, 20px) clamp(20px, 3vw, 46px);
+    font-size: clamp(0.8rem, 3.2vw, 2rem);
   }
 
   .btn:hover {
@@ -48,17 +49,12 @@
   }
 }
 
-// image
-.landing-right {
-  background-color: #f8f8fc; /* slightly lighter than bg */
-  border-radius: 20px;
-  padding: 3rem;
-  width: 52%;
-  height: 52%;
-  /* max-width: 400px; */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10rem;
+@media (max-width: 768px) {
+  video {
+    display: none;
+  }
+
+  .landing-left {
+    margin-left: 6rem;
+  }
 }

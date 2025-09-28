@@ -114,3 +114,51 @@
 .nextword-button:hover::before {
   height: 0;
 }
+
+@media (max-width: 768px) {
+  .practice-main-container {
+    display: flex;
+    flex-direction: column;
+    img {
+      display: none;
+    }
+  }
+
+  .practice-left-container {
+    width: 100%;
+    order: 2;
+    padding: 0;
+  }
+
+  .practice-right-container {
+    width: 100%;
+    order: 1;
+  }
+
+  .prediction-display {
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.8);
+  }
+
+  .result-box {
+    order: 1; /* Move result box to top */
+    margin-left: 0;
+  }
+
+  .navigation-buttons {
+    order: 2; /* Move navigation buttons below result box */
+    display: flex; /* Keep it visible but reordered */
+    // justify-content: center;
+    margin-top: 10px;
+  }
+
+  .prediction-text {
+    margin: 0;
+    font-size: 1.6rem;
+  }
+  // .navigation-buttons {
+  //   // display: none;
+  //   transform: scale(0.8);
+  // }
+}

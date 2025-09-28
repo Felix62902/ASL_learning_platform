@@ -84,3 +84,27 @@ h3 {
   width: 200px;
   height: 200px;
 }
+
+@media (max-width: 768px) {
+  .title-and-searchbar {
+    display: block;
+    margin-bottom: 2vh;
+    h1 {
+      font-size: clamp(1.2rem, 4vw, 2.8rem);
+    }
+    p {
+      font-size: clamp(1rem, 2.8vw, 2.4rem);
+    }
+  }
+
+  .lessons-container {
+    margin-top: 3.2vh;
+    overflow-y: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .lesson-card {
+    transform: scale(0.96);
+  }
+}

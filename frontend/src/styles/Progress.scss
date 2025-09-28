@@ -1,11 +1,11 @@
-.title-container {
+.progress-title-container {
   place-items: center;
   // margin-bottom: 1.8rem;
   width: 100%;
 
   h1 {
     color: var(--color-text-primary);
-    font-size: 2.2rem;
+    font-size: clamp(1.2rem, 4vw, 2rem);
     margin-top: 0;
   }
   p {

@@ -50,7 +50,7 @@ function Profile() {
 
   return (
     <>
-      <div className="title-container">
+      <div className="progress-title-container">
         <h1>Progress</h1>
         <p>
           Welcome back, {profile.username}! Here's a summary of your learning

@@ -18,6 +18,12 @@ import { ExitIcon } from "@radix-ui/react-icons";
 const practiceWords = ["ABLE", "HELLO", "WORLD", "FAMILY", "SIGN"];
 
 function FreePractice() {
+  const videoStackRef = useRef<HTMLDivElement>(null);
+  const [containerSize, setContainerSize] = useState({
+    width: 640,
+    height: 480,
+  });
+
   // --- State for Word Spelling Logic ---
   const [wordToSpell, setWordToSpell] = useState(""); //word
   const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0); //loop over word
@@ -99,6 +105,32 @@ function FreePractice() {
       }
     }
     setup();
+  }, []);
+
+  useEffect(() => {
+    if (!videoStackRef.current) return;
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        const { width, height } = entry.contentRect;
+        setContainerSize({ width, height });
+
+        // Update canvas dimensions
+        if (canvasRef.current) {
+          canvasRef.current.width = width;
+          canvasRef.current.height = height;
+
+          // If you're doing any drawing on the canvas, you might need to redraw here
+          // redrawCanvas(); // Call your drawing function if needed
+        }
+      }
+    });
+
+    resizeObserver.observe(videoStackRef.current);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
   }, []);
 
   // This is the core prediction loop
@@ -263,12 +295,16 @@ function FreePractice() {
             Back to Practice
           </button>
           {/* ... webcam and canvas JSX ... */}
-          <div className="video-stack">
+
+          <div className="video-stack" ref={videoStackRef}>
             <Webcam
               ref={webcamRef}
               audio={false}
               mirrored={true}
-              videoConstraints={{ width: 640, height: 480 }}
+              videoConstraints={{
+                width: containerSize.width,
+                height: containerSize.height,
+              }}
               style={{
                 position: "relative",
                 width: "100%",
@@ -277,8 +313,8 @@ function FreePractice() {
             />
             <canvas
               ref={canvasRef}
-              width={640}
-              height={480}
+              width={containerSize.width}
+              height={containerSize.height}
               style={{
                 position: "absolute",
                 width: "100%",

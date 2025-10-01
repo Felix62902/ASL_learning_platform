@@ -48,11 +48,6 @@ function PracticeSession({
   const modelRef = useRef<tf.GraphModel | null>(null);
   const handLandmarkerRef = useRef<HandLandmarker | null>(null);
 
-  const videoStackRef = useRef<HTMLDivElement>(null);
-  const [containerSize, setContainerSize] = useState({
-    width: 640,
-    height: 480,
-  });
   //  UI states
   const [loadingMessage, setLoadingMessage] =
     useState<string>("Initializing...");
@@ -117,32 +112,6 @@ function PracticeSession({
       }
     }
     setup();
-  }, []);
-
-  useEffect(() => {
-    if (!videoStackRef.current) return;
-
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
-        const { width, height } = entry.contentRect;
-        setContainerSize({ width, height });
-
-        // Update canvas dimensions
-        if (canvasRef.current) {
-          canvasRef.current.width = width;
-          canvasRef.current.height = height;
-
-          // If you're doing any drawing on the canvas, you might need to redraw here
-          // redrawCanvas(); // Call your drawing function if needed
-        }
-      }
-    });
-
-    resizeObserver.observe(videoStackRef.current);
-
-    return () => {
-      resizeObserver.disconnect();
-    };
   }, []);
 
   //  this effect is for prev and next sign buttons. The user is able to access the next sign only if the next sign is unlocked
@@ -406,25 +375,23 @@ function PracticeSession({
             Back to Practice
           </button>
           {isReady ? (
-            <div className="video-stack" ref={videoStackRef}>
+            <div className="video-stack">
               <Webcam
                 ref={webcamRef}
                 audio={false}
                 mirrored={true}
-                videoConstraints={{
-                  width: containerSize.width,
-                  height: containerSize.height,
-                }}
+                videoConstraints={{ width: 640, height: 480 }}
                 style={{
-                  position: "relative",
+                  position: "absolute",
                   width: "100%",
-                  height: "auto",
+                  height: "100%",
+                  objectFit: "cover",
                 }}
               />
               <canvas
                 ref={canvasRef}
-                width={containerSize.width}
-                height={containerSize.height}
+                width={640}
+                height={480}
                 style={{
                   position: "absolute",
                   width: "100%",
@@ -432,6 +399,7 @@ function PracticeSession({
                   top: 0,
                   left: 0,
                   zIndex: 10,
+                  objectFit: "cover",
                 }}
               />
             </div>

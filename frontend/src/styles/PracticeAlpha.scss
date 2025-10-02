@@ -1,0 +1,33 @@
+@media (max-width: 768px) {
+  .practiceAlpha-container {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh; /* Ensures the container is at least the full height of the viewport */
+    // background-color: #ffffff;
+    width: 100%;
+    // overflow: hidden;
+  }
+
+  .practiceAlpha-content {
+    order: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    padding-bottom: 1rem;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    flex-grow: 1;
+  }
+
+  .practiceAlpha-container > :first-child {
+    order: 2;
+    position: sticky;
+    bottom: 0;
+    /* width: 100%; */
+    z-index: 1000;
+    border-top: 1px solid #e5e7eb;
+    /* flex-shrink: 0; */
+    background-color: var(--color-button-hover);
+  }
+}

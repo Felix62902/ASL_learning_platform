@@ -4,13 +4,16 @@ import { useState } from "react";
 import PracticeSession from "../../components/PracticeSession";
 import Navbar from "../../components/Navbar";
 import FreePractice from "../../components/FreePractice";
+import "../../styles/PracticeAlpha.scss";
 
 function PracticeFree() {
   return (
     <>
-      <div>
+      <div className="practiceAlpha-container">
         <Navbar access="Private"></Navbar>
-        <FreePractice></FreePractice>
+        <div className="practiceAlpha-content">
+          <FreePractice></FreePractice>
+        </div>
       </div>
     </>
   );

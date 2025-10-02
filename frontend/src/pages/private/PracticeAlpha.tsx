@@ -7,6 +7,7 @@ import api from "../../api";
 import { useParams } from "react-router-dom";
 import type { ProgressRecord } from "../../models/ProgressRecord";
 import type { UserInformation } from "../../models/UserInformation";
+import "../../styles/PracticeAlpha.scss";
 
 interface UnlockedLesson {
   id: number;
@@ -83,17 +84,19 @@ function PracticeAlpha() {
 
   return (
     <>
-      <div>
+      <div className="practiceAlpha-container">
         <Navbar access="Private"></Navbar>
-        {!loading && lessonId !== null && user && (
-          <PracticeSession
-            unlockedLesson={unlockedLesson}
-            hasPracticedBefore={hasPracticedBefore}
-            saveProgress={saveProgress}
-            lessonId={lessonId}
-            lefthanded={user.left_handed}
-          />
-        )}
+        <div className="practiceAlpha-content">
+          {!loading && lessonId !== null && user && (
+            <PracticeSession
+              unlockedLesson={unlockedLesson}
+              hasPracticedBefore={hasPracticedBefore}
+              saveProgress={saveProgress}
+              lessonId={lessonId}
+              lefthanded={user.left_handed}
+            />
+          )}
+        </div>
       </div>
     </>
   );

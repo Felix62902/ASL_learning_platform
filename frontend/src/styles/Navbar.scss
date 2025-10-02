@@ -55,23 +55,37 @@
 @media (max-width: 768px) {
   .navbar {
     // Reduce padding on smaller screens
-    padding: 1.2rem 2rem;
+    padding: 1.4rem 1.6rem;
+
+    .navbar-logo {
+      display: none;
+    }
   }
 
   .navbar-links {
-    // Hide the nav links by default on mobile
-    display: none;
-    // Stack them vertically when shown
-    flex-direction: column;
-    // Position them as a dropdown menu
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--color-background);
-    padding: 1rem 0;
+    flex-direction: row;
+
     text-align: center;
-    gap: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    gap: 0.8rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar-links > li > a {
+    color: var(--color-background-light);
+    border-right: 2px solid black;
+    padding-right: 1.4vw;
+  }
+
+  .navbar-links > li:last-child > a {
+    border-right: none;
+  }
+
+  .nav-icon {
+    display: none;
+  }
+
+  .public-nav {
+    display: none;
   }
 }

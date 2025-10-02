@@ -18,12 +18,11 @@ function Navbar({ access }: NavbarProps) {
       <ul className="navbar-links">
         {access == "Public" ? (
           <>
-            <li>
+            <li className="public-nav">
               <Link to="/about">About</Link>
             </li>
 
-            <li>{/* <Link to="/contact">Contact</Link> */}</li>
-            <li>
+            <li className="public-nav">
               <Link to="/login" className="btn-primary small">
                 Get started
               </Link>
@@ -41,7 +40,7 @@ function Navbar({ access }: NavbarProps) {
               <Link to="/settings">Settings</Link>
             </li>
             <li>
-              <ExitIcon></ExitIcon>
+              <ExitIcon className="nav-icon"></ExitIcon>
               <Link to="../">Sign-out</Link>
             </li>
           </>

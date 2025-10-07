@@ -1,17 +1,22 @@
+/* ===== LAYOUT CONTAINERS ===== */
 .progress-title-container {
+  display: grid;
   place-items: center;
-  // margin-bottom: 1.8rem;
   width: 100%;
+  margin-bottom: 1.8rem; /* Uncommented and kept for consistency */
 
   h1 {
     color: var(--color-text-primary);
     font-size: clamp(1.2rem, 4vw, 2rem);
     margin-top: 0;
+    margin-bottom: 0.5rem; /* Added for better spacing */
   }
+
   p {
-    font-size: 1.2rem;
     color: var(--color-text-secondary);
+    font-size: 1.2rem;
     font-weight: 500;
+    margin: 0; /* Reset default margins */
   }
 }
 
@@ -19,54 +24,120 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2.8rem;
-  margin-top: 1.6rem;
   width: 80%;
   height: 500px;
+  margin-top: 1.6rem;
 
-  h1 {
-    color: white;
-    font-size: 4rem;
-  }
-
+  /* Main profile card */
   .profile-container {
-    text-align: center;
-    background-color: var(--color-primary-dark); /* slightly lighter than bg */
-    border-radius: 20px;
+    display: grid;
     align-content: center;
+    text-align: center;
+    background-color: var(--color-primary-dark);
+    border-radius: 20px;
     padding: 2.4rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 
+    h1 {
+      color: white;
+      font-size: 4rem;
+      margin: 0 0 1rem 0; /* Consistent spacing */
+    }
+
     h3 {
       color: white;
+      margin: 0.5rem 0; /* Consistent spacing */
     }
   }
 
-  @media (min-width: 2000px) {
-    .profile-container {
-      min-height: 1000px;
-    }
-  }
-
+  /* Right half grid layout */
   .righthalf-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 1.2rem;
   }
+
+  /* Responsive design */
 }
 
+/* ===== CARD COMPONENTS ===== */
 .right-half-card {
-  border-style: solid;
+  border: 2px solid var(--color-background-light); /* Consolidated border properties */
   border-radius: 2rem;
   padding: 2rem;
-  border-color: var(--color-background-light);
 
   .card-header {
     font-size: 2rem;
+    margin: 0 0 1rem 0; /* Consistent spacing */
+
     a {
+      color: var(--color-text-primary);
       font-size: 1.8rem;
       text-decoration: none;
-      color: var(--color-text-primary);
+      transition: color 0.2s ease; /* Added for better UX */
+
+      &:hover {
+        color: var(--color-text-secondary); /* Added hover state */
+      }
+    }
+  }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (min-width: 2000px) {
+  .profile-container {
+    min-height: 1000px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-main-container {
+    grid-template-columns: 1fr;
+    width: 95%;
+    gap: 1rem;
+
+    .righthalf-container {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 1rem;
+    }
+
+    .profile-container {
+      padding: 1.6rem;
+    }
+
+    .profile-container > h1 {
+      font-size: 2.8rem;
+      margin: 0;
+    }
+  }
+
+  .progress-title-container {
+    margin-bottom: 0;
+
+    p {
+      margin: 0 12vw 0 12vw;
+    }
+  }
+
+  .right-half-card {
+    padding: 1.2rem;
+
+    .card-subheader {
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    .card-header {
+      font-size: 1.6rem;
+
+      a {
+        font-size: 1.4rem;
+      }
     }
   }
 }

@@ -48,7 +48,6 @@ function Form({ route, method }: FormProps) {
         navigate("/login");
       }
     } catch (err) {
-      // --- CORRECTED: Intelligent error handling ---
       const axiosError = err as AxiosError;
       if (axiosError.response) {
         // The request was made and the server responded with a status code

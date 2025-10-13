@@ -19,7 +19,7 @@ function Navbar({ access }: NavbarProps) {
         {access == "Public" ? (
           <>
             <li className="public-nav">
-              <Link to="/about">About</Link>k
+              <Link to="/about">About</Link>
             </li>
 
             <li className="public-nav">

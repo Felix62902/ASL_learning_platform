@@ -1,13 +1,44 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
-from .models import Category, Lesson, UserProgress, UnlockedLesson
+from .models import Category, Lesson, UserProgress, UnlockedLesson, WordOfTheDay
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 User = get_user_model()
 
 # model serializer auto genearate field based on model, handles validations and can be used to create or update
 
-# -----------------USER---------------------------
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    # Customizes the JWT token creation process to allow login with email. Overriding default fields to accept email instead of username
+    email = serializers.EmailField(required=True)
+    password = serializers.CharField(style={'input_type': 'password'}, write_only=True)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields.pop('username', None)
+
+
+    def validate(self, attrs):
+        email = attrs.get("email")
+        password = attrs.get("password")
+
+        try:
+            # Find the user by their email address (case-insensitive)
+            user = User.objects.get(email__iexact=email)
+        except User.DoesNotExist:
+            raise serializers.ValidationError("No active account found with the given credentials")
+        if not user.check_password(password):
+             raise serializers.ValidationError("No active account found with the given credentials")
+        # If credentials are valid, proceed to get the token
+        refresh = self.get_token(user)
+
+        # add extra user data to the response 
+        data = {}
+        data["refresh"] = str(refresh)
+        data["access"] = str(refresh.access_token)
+
+        data["username"] = user.username
+        return data
+
 # Registration use
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -116,34 +147,7 @@ class UnlockedLessonSerializer(serializers.ModelSerializer):
         read_only_fields = ['user', 'unlocked_at', 'lesson']
 
     
-class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
-    # Customizes the JWT token creation process to allow login with email. Overriding default fields to accept email instead of username
-    email = serializers.EmailField(required=True)
-    password = serializers.CharField(style={'input_type': 'password'}, write_only=True)
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields.pop('username', None)
-
-
-    def validate(self, attrs):
-        email = attrs.get("email")
-        password = attrs.get("password")
-
-        try:
-            # Find the user by their email address (case-insensitive)
-            user = User.objects.get(email__iexact=email)
-        except User.DoesNotExist:
-            raise serializers.ValidationError("No active account found with the given credentials")
-        if not user.check_password(password):
-             raise serializers.ValidationError("No active account found with the given credentials")
-        # If credentials are valid, proceed to get the token
-        refresh = self.get_token(user)
-
-        # add extra user data to the response 
-        data = {}
-        data["refresh"] = str(refresh)
-        data["access"] = str(refresh.access_token)
-
-        data["username"] = user.username
-        return data
+class WordOfTheDaySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WordOfTheDay
+        fields = ["word","date"]

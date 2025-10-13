@@ -15,6 +15,8 @@ import Settings from "./pages/private/Settings";
 import PracticeAlpha from "./pages/private/PracticeAlpha";
 import PracticeFree from "./pages/private/PracticeFree";
 import About from "./pages/public/About";
+import TestingPage from "./pages/testing";
+import WOTDPractice from "./components/WOTDPractice";
 
 function Logout() {
   localStorage.clear(); // clear access and register token
@@ -95,6 +97,15 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/home/wotd"
+          element={
+            <ProtectedRoute>
+              <WOTDPractice></WOTDPractice>
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/testing" element={<TestingPage></TestingPage>}></Route>
       </Routes>
     </BrowserRouter>
   );

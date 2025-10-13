@@ -51,3 +51,10 @@ class UnlockedLesson(models.Model):
 
     class Meta:
         unique_together = ('user', 'lesson')
+
+class WordOfTheDay(models.Model):
+    word = models.CharField(max_length=100)
+    date = models.DateField(auto_now_add=True, unique=True)
+
+    def __str__(self):
+        return self.word

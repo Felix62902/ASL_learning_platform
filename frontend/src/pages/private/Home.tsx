@@ -25,7 +25,7 @@ function Home() {
 
         {/* right half of the container */}
         <div className="vcb-fp-container">
-          <div className="vcb-container" style={{ backgroundColor: "#ebebeb" }}>
+          {/* <div className="vcb-container" style={{ backgroundColor: "#ebebeb" }}>
             <h3>Vocabulary</h3>
             <p>
               Build your conversational skills with essential signs for daily
@@ -39,7 +39,7 @@ function Home() {
                 Complete Fingerspelling to unlock
               </span>
             </p>
-          </div>
+          </div> */}
 
           <div className="vcb-container">
             <h3>Word Practice</h3>
@@ -49,6 +49,12 @@ function Home() {
               improve your recognition speed
             </p>
             <Link to="./freePractice">Practice →</Link>
+          </div>
+
+          <div className="vcb-container">
+            <h3>Word Of The Day</h3>
+            <p>Earn points by spelling the word of the day, renewed daily</p>
+            <Link to="./wotd">Practice →</Link>
           </div>
         </div>
       </div>

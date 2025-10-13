@@ -3,9 +3,9 @@ from django.contrib.auth import get_user_model
 
 from rest_framework.views import APIView
 from rest_framework import generics, viewsets, status
-from .serializers import UserSerializer, CategorySerializer, LessonSerializer,ChangePasswordSerializer, UserProgressSerializer, UnlockedLessonSerializer, MyTokenObtainPairSerializer, UserProfileSerializer
+from .serializers import UserSerializer, CategorySerializer, LessonSerializer,ChangePasswordSerializer, UserProgressSerializer, UnlockedLessonSerializer, MyTokenObtainPairSerializer, UserProfileSerializer, WordOfTheDaySerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from .models import Category, Lesson, UserProgress, UnlockedLesson
+from .models import Category, Lesson, UserProgress, UnlockedLesson, WordOfTheDay
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 from .filters import LessonFilter
@@ -182,3 +182,15 @@ class ChangePasswordView(generics.UpdateAPIView):
             return Response({"message": "Password updated successfully"}, status=status.HTTP_200_OK)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# GET word of the day
+class LatestWordOfTheDayView(generics.ListAPIView):
+    serializer_class = WordOfTheDaySerializer
+
+    def get_queryset(self):
+        # Get the most recent WordOfTheDay entry.
+        latest_word = WordOfTheDay.objects.order_by('-date').first()
+        if latest_word:
+            # Return it as a list (QuerySet) so ListAPIView can handle it.
+            return WordOfTheDay.objects.filter(pk=latest_word.pk)
+        return WordOfTheDay.objects.none() # Return an empty QuerySet if the table is empty

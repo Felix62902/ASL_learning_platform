@@ -32,6 +32,8 @@ urlpatterns = [
     # total lesson count
     path('lessons-total-count/', views.TotalLessonsCountView.as_view(), name='total-lessons-count'),
     # change password
-    path('user/change-password/', views.ChangePasswordView.as_view(), name='change-password')
+    path('user/change-password/', views.ChangePasswordView.as_view(), name='change-password'),
+    # get word of the day
+    path('word-of-the-day/', views.LatestWordOfTheDayView.as_view(), name="word-of-the-day")
     
 ]
